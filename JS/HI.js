@@ -1,22 +1,18 @@
 /**
  * Created by Administrator on 2016/7/11.
  */
-var year;
-var month;
-var day;
+var birthday;
 
 function input() {
-    var name = prompt("输入你的生日");
-    year = name[0] + name[1] + name[2] + name[3];
-    month = name[4] + name[5];
-    day = name[6] + name[7];
+    birthday = prompt("输入你的生日");
+
 timedCount();
 }
 function timedCount() {
-var d=new Date();
-    d.setFullYear(year+80,month,day);
-    d.setHours(0,0,0,0);
-  var c=((d.getTime()-new Date().getTime())/1000).toFixed(0);
+var b=new Date(birthday);
+    var d=new Date(b.setFullYear(b.getFullYear()+80));
+    var today=new Date;
+  var c=((d.getTime()-today.getTime())/1000).toFixed(0);
   document.getElementById("txt").innerHTML="你还有"+c+"秒就挂了哦";
-    t=setTimeout('timedCount()','1000');
+    t=setTimeout('timedCount()',500);
 }
